@@ -26,7 +26,6 @@ import {
   PageMain,
 } from "./styles";
 
-import { MenuItem, Select } from "@mui/material";
 import React from "react";
 import TrocaImagensAutomatica from "@/components/SliderImage";
 
@@ -68,7 +67,6 @@ const validationSchema = yup.object({
 export default function RegistrarAssinatura({ slug }: ISlugProps) {
   const router = useRouter();
   const [token, setToken] = useState<string>("");
-  const [parcelas, setParcelas] = useState(1);
 
   const {
     handleSubmit,
@@ -78,10 +76,6 @@ export default function RegistrarAssinatura({ slug }: ISlugProps) {
     mode: "onChange",
     resolver: yupResolver(validationSchema),
   });
-
-  const handleParcelasChange = (e: any) => {
-    setParcelas(parseInt(e.target.value));
-  };
 
   const submitForm = useCallback(
     async (data: IForm) => {
@@ -143,9 +137,9 @@ export default function RegistrarAssinatura({ slug }: ISlugProps) {
 
   const handleChange =
     (name: keyof IForm) =>
-    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setValue(name, e.target.value, { shouldValidate: true });
-    };
+      (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setValue(name, e.target.value, { shouldValidate: true });
+      };
 
   useEffect(() => {
     const script = document.createElement("script");
