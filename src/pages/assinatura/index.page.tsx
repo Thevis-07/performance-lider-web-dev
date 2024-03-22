@@ -195,7 +195,7 @@ export default function RegistrarAssinatura() {
               required
               fullWidth
               id="cpfCnpj"
-              label="Cpf ou Cnpj"
+              label="CPF ou CNPJ"
               name="cpfCnpj"
               type="text"
               onChange={handleChange("cpfCnpj")}
