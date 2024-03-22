@@ -76,11 +76,6 @@ export default function RegistrarAssinatura() {
           const secureUrl = request.data;
           window.location.href = secureUrl;
         }
-        if (request.status == 400) {
-          router.push("/assinatura/erro");
-        } else if (request.status == 500) {
-          router.push("/assinatura/erro");
-        }
       } catch (error) {
         Modal.error({
           title: "Houve um erro ao tentar cadastrar seus dados",
@@ -90,7 +85,7 @@ export default function RegistrarAssinatura() {
         setLoading(false);
       }
     },
-    [router]
+    []
   );
 
   let timer: NodeJS.Timeout;
